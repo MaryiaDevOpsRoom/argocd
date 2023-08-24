@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - image: https://quay.io/repository/maryia-brauer/flask-hello-world:v1
+        name: flask-hello-world
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-hello-world
+spec:
+  ports:
+  - port: 8080
+    targetPort: 5000
+  selector:
+    app: hello
