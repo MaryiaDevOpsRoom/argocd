@@ -13,7 +13,7 @@ spec:
         app: hello
     spec:
       containers:
-      - image: quay.io/maryia-brauer/flask-hello-world:v1
+      - image: quay.io/maryia-brauer/flask-hello-world:111
         name: flask-hello-world
         ports:
         - containerPort: 5000
